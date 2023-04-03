@@ -17,9 +17,7 @@ import com.example.sensor.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment{
     TextView showCountTextView;
-    private TextView x,y,z;
-    private Sensor mySensor;
-    private SensorManager SM;
+
 
     private FragmentFirstBinding binding;
 
@@ -40,13 +38,21 @@ public class FirstFragment extends Fragment{
         view.findViewById(R.id.random_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                countMe(view);
+                ((MainActivity)getActivity()).shake();
+            }
+        });
+
+        view.findViewById(R.id.fall_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).fall();
             }
         });
 
         view.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ((MainActivity)getActivity()).changeCount();
             }
         });
     }
